@@ -24,6 +24,6 @@ function setMessage(msg) {
 }
 
 setMessage("bananpannkaka")
-const x = setMessage("banan")
+const x = setMessage("alman")
 
 console.log(x)
