@@ -1,5 +1,6 @@
 
 const secretNumber = randomInt()
+let guesses = new Array()
 
 function randomInt() {
     return Math.floor(Math.random() * 101)
@@ -13,16 +14,21 @@ function getGuess() {
 document.addEventListener('keyup', function (event) {
     if (event.key === 'Enter') {
         const guess = getGuess()
+        guesses.push(getGuess())
         console.log(guess)
-        
+        console.log(guesses)
+        console.log(guesses.length)
+
         if (guess < secretNumber) {
             setMessage('Too small!')
+            document.getElementById('user-input').value = ''
         }
         if (guess > secretNumber) {
             setMessage('Too big!')
+            document.getElementById('user-input').value = ''
         }
         if (guess === secretNumber) {
-            setMessage('You are right!')
+            setMessage(`You are right!, det tog dig bara ${guesses.length} gissningar`) 
         }
     }
 })
